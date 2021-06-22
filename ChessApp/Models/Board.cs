@@ -2,19 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace ChessApp
+namespace ChessApp.Models
 {
-    enum Colour
-    {
-        Black,
-        White
-    }
-    class Square
-    {
-        public Colour colour = new Colour();
-    }
-    
-    class Board
+    public class Board
     {
         private Square[,] squares = new Square[8, 8];
 
@@ -25,7 +15,7 @@ namespace ChessApp
                 for (int j = 0; j < 8; j++)
                 {
                     this.squares[i, j] = new Square();
-                    this.squares[i, j].colour = (i % 2 == 0 & j % 2 == 0) | (i % 2 != 0 & j % 2 != 0) ? Colour.White : Colour.Black;
+                    this.squares[i, j].Colour = (i % 2 == 0 & j % 2 == 0) | (i % 2 != 0 & j % 2 != 0) ? Colour.White : Colour.Black;
                 }
             }
         }
@@ -36,7 +26,7 @@ namespace ChessApp
             {
                 for (int j = 0; j < 8; j++)
                 {
-                    Console.Write(this.squares[i, j].colour == Colour.Black ? " " : "\u2588");
+                    Console.Write(this.squares[i, j].Colour == Colour.Black ? " " : "\u2588");
                 }
                 Console.WriteLine();
             }

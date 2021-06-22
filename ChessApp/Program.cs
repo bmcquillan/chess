@@ -1,4 +1,5 @@
 ﻿using System;
+using ChessApp.Models;
 
 namespace ChessApp
 {
