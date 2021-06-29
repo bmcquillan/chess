@@ -8,5 +8,10 @@ namespace ChessApp.Models.Pieces
     {
         public readonly Colour Colour;
         public abstract string Icon { get; }
+
+        protected Piece(Colour colour)
+        {
+            this.Colour = colour;
+        }
     }
 }

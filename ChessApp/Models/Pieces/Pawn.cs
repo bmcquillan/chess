@@ -8,5 +8,10 @@ namespace ChessApp.Models.Pieces
     {
         public bool HasMoved { get; private set; }
         public override string Icon { get => Colour == Colour.White ? "P" : "p"; }
+
+        public Pawn(Colour colour) : base(colour)
+        {
+
+        }
     }
 }
