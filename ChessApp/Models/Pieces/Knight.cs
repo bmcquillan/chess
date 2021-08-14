@@ -13,5 +13,10 @@ namespace ChessApp.Models.Pieces
 
         }
 
+        public bool isValidMovePosition((int x, int y) start, (int x, int y) end)
+        {
+            return (Math.Abs(start.x - end.x) == 2 && Math.Abs(start.y - end.y) == 1) ||
+                (Math.Abs(start.x - end.x) == 1 && Math.Abs(start.y - end.y) == 2);
+        }
     }
 }
