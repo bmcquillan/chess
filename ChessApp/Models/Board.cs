@@ -44,6 +44,12 @@ namespace ChessApp.Models
                 }
             }
         }
+
+        public Colour? inCheckMate() {
+            return null;
+        }
+
+
         public void createBoard()
         {
             for (int i = 0; i < 8; i++)
