@@ -73,5 +73,35 @@ namespace ChessApp.Models
             }
             Console.WriteLine("   a b c d e f g h");
         }
+
+        public Piece? GetPiece(string notation)
+        {
+            return GetSquare(notation).Piece;
+        }
+
+        private Square GetSquare(string notation)
+        {
+            string lowerCaseNotation = notation.ToLower();
+            int column = lowerCaseNotation[0] - 97;
+            int row = int.Parse(lowerCaseNotation.Substring(1, 1)) - 1;
+
+            return squares[row, column];
+        }
+
+        private Square GetKingLocation(Colour kingColour)
+        {
+            for (int row = 0; row < 8; row++)
+            {
+                for (int col = 0; col < 8; col++)
+                {
+
+                    if(squares[row, col].Piece is King && squares[row, col].Piece.Colour == kingColour)
+                    {
+                        return squares[row, col];
+                    }
+                }
+            }
+            throw new ArgumentOutOfRangeException($"Could not find King of target colour {kingColour}");
+        }
     }
 }
