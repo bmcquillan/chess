@@ -10,8 +10,14 @@ namespace ChessApp
         public Game()
         {
             this.history = new List<Board>();
-            this.history.Add(new Board());
+            Board start = new Board();
+            start.initializePieces();
+            this.history.Add(start);
         }
 
+        public Board getCurrentState()
+        {
+            return history[history.Count - 1];
+        }
     }
 }

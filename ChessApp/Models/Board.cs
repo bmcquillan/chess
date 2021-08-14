@@ -15,32 +15,32 @@ namespace ChessApp.Models
         {
             for (int i = 0; i < 8; i++)
             {
-                squares[1, i].piece = new Pawn(Colour.Black);
-                squares[6, i].piece = new Pawn(Colour.White);
+                squares[1, i].Piece = new Pawn(Colour.Black);
+                squares[6, i].Piece = new Pawn(Colour.White);
                 if (i == 0 | i == 7)
                 {
-                    squares[0, i].piece = new Rook(Colour.Black);
-                    squares[7, i].piece = new Rook(Colour.White);
+                    squares[0, i].Piece = new Rook(Colour.Black);
+                    squares[7, i].Piece = new Rook(Colour.White);
                 } 
                 if (i == 1 | i == 6)
                 {
-                    squares[0, i].piece = new Knight(Colour.Black);
-                    squares[7, i].piece = new Knight(Colour.White);
+                    squares[0, i].Piece = new Knight(Colour.Black);
+                    squares[7, i].Piece = new Knight(Colour.White);
                 }
                 if (i == 2 | i == 5)
                 {
-                    squares[0, i].piece = new Bishop(Colour.Black);
-                    squares[7, i].piece = new Bishop(Colour.White);
+                    squares[0, i].Piece = new Bishop(Colour.Black);
+                    squares[7, i].Piece = new Bishop(Colour.White);
                 }
                 if (i == 4)
                 {
-                    squares[0, i].piece = new King(Colour.Black);
-                    squares[7, i].piece = new King(Colour.White);
+                    squares[0, i].Piece = new King(Colour.Black);
+                    squares[7, i].Piece = new King(Colour.White);
                 }
                 if (i == 3)
                 {
-                    squares[0, i].piece = new Queen(Colour.Black);
-                    squares[7, i].piece = new Queen(Colour.White);
+                    squares[0, i].Piece = new Queen(Colour.Black);
+                    squares[7, i].Piece = new Queen(Colour.White);
                 }
             }
         }
@@ -56,51 +56,22 @@ namespace ChessApp.Models
             }
         }
 
-        public void lazyPrint()
+        public void PrintBoard()
         {
-            Console.Write(" ");
-            for (int i = 0; i < 8; i++)
+            for (int row = 7; row >= 0; row--)
             {
-                Console.Write(i.ToString());
-            }
-            Console.WriteLine();
-            for (int i = 0; i < 8; i++)
-            {
-                Console.Write(i.ToString());
-                for (int j = 0; j < 8; j++)
+                // print row specifier
+                Console.Write("{0} ", row + 1);
+
+                for (int col = 0; col < 8; col++)
                 {
-                    Console.Write(this.squares[i, j].Colour == Colour.Black ? " " : "\u2588");
+
+                    // print piece
+                    Console.Write("|{0}", squares[row, col].Piece?.Icon ?? ".");
                 }
                 Console.WriteLine();
             }
-        }
-
-        public void lazyPrintPieces()
-        {
-            Console.Write(" ");
-            for (int i = 0; i < 8; i++)
-            {
-                Console.Write(i.ToString());
-            }
-            Console.WriteLine();
-            for (int i = 0; i < 8; i++)
-            {
-                Console.Write(i.ToString());
-                for (int j = 0; j < 8; j++)
-                {
-                    if (this.squares[i,j].piece != null)
-                    {
-                        Console.Write(this.squares[i, j].piece.Icon);
-                    }
-                    else
-                    {
-                        Console.Write(this.squares[i, j].Colour == Colour.Black ? " " : "\u2588");
-                    }
-
-                    
-                }
-                Console.WriteLine();
-            }
+            Console.WriteLine("   a b c d e f g h");
         }
     }
 }

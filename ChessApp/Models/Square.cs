@@ -9,7 +9,7 @@ namespace ChessApp.Models
     {
         public Colour Colour { get; set; }
 
-        public Piece piece { get; set; }
+        public Piece? Piece { get; set; }
 
     }
 }

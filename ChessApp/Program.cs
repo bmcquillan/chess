@@ -11,8 +11,7 @@ namespace ChessApp
             Console.WriteLine("Hello World!");
             Board board = new Board();
             board.initializePieces();
-            board.lazyPrint();
-            board.lazyPrintPieces();
+            board.PrintBoard();
         }
     }
 }
