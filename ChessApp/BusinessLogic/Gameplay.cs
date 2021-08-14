@@ -6,7 +6,7 @@ namespace ChessApp.BusinessLogic
 {
     public class Gameplay : IGameplay
     {
-        private GameStates game = new GameStates();
+        private GameState game = new GameState();
         private readonly IRuleService _ruleService;
 
         public Gameplay(IRuleService ruleService)

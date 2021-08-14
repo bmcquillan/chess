@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using ChessApp.Models;
 
-namespace ChessApp
+namespace ChessApp.Models
 {
-    public class GameStates
+    public class GameState
     {
         public List<(Colour, Board)> History;
-        public GameStates()
+        public GameState()
         {
             this.History = new List<(Colour,Board)>();
             Board start = new Board();
