@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using ChessApp.BusinessLogic;
 
 namespace ChessApp.Models.Pieces
 {
@@ -12,6 +13,11 @@ namespace ChessApp.Models.Pieces
         public Rook(Colour colour) : base(colour)
         {
 
+        }
+
+        public static bool isValidMovePosition((int x, int y) start, (int x, int y) end)
+        {
+            return RuleService.isStraightMove(start, end) && end != start;
         }
     }
 }
