@@ -1,15 +1,17 @@
 ﻿using System;
+using ChessApp.BusinessLogic;
 using ChessApp.Models;
 
-namespace ChessApp
+namespace ChessApp.BusinessLogic
 {
-    public class Gameplay
+    public class Gameplay : IGameplay
     {
-        private GameStates game;
+        private GameStates game = new GameStates();
+        private readonly IRuleService _ruleService;
 
-        public Gameplay(GameStates game)
+        public Gameplay(IRuleService ruleService)
         {
-            this.game = game;
+            _ruleService = ruleService;
         }
 
         public void takeTurns()
@@ -36,15 +38,15 @@ namespace ChessApp
 
                 // check if move input is syntactically valid
 
-                    //try move
+                //try move
 
-                    //validate new state
+                //validate new state
 
-                    //
+                //
 
             }
             Console.WriteLine("Game over");//print winner
-           
+
         }
     }
 }
