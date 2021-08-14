@@ -109,5 +109,23 @@ namespace ChessApp.Models
             }
             throw new ArgumentOutOfRangeException($"Could not find King of target colour {kingColour}");
         }
+
+        private List<(int, int)> FindPieces(Colour colour, Type pieceType)
+        {
+            List<(int, int)> positions = new List<(int, int)>();
+
+            for (int row = 0; row < 8; row++)
+            {
+                for (int col = 0; col < 8; col++)
+                {
+
+                    if (squares[row, col].Piece != null && pieceType == squares[row, col].Piece.GetType() && squares[row, col].Piece.Colour == colour)
+                    {
+                        positions.Add((row, col));
+                    }
+                }
+            }
+            return positions
+        }
     }
 }

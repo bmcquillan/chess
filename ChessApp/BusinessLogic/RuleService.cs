@@ -7,7 +7,7 @@ namespace ChessApp.BusinessLogic
 {
     public class RuleService : IRuleService
     {
-        public bool IsCheck()
+        public bool IsCheck(Board board)
         {
             throw new NotImplementedException();
         }
@@ -33,5 +33,7 @@ namespace ChessApp.BusinessLogic
             return (Math.Abs(start.x - end.x) > 0 && Math.Abs(start.y - end.y) == 0) ||
                 (Math.Abs(start.x - end.x) == 0 && Math.Abs(start.y - end.y) > 0);
         }
+
+        
     }
 }
