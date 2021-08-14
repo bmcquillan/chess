@@ -125,7 +125,7 @@ namespace ChessApp.Models
                     }
                 }
             }
-            return positions
+            return positions;
         }
     }
 }
