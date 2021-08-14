@@ -6,18 +6,30 @@ namespace ChessApp.Models
 {
     public class GameState
     {
-        public List<(Colour, Board)> History;
+        public List<(Colour, Board)> History { get; set; }
+
+        public Colour ActivePlayer { get; set; }
+
+        public Board CurrentBoard { get; set; }
+
         public GameState()
         {
             this.History = new List<(Colour,Board)>();
             Board start = new Board();
             start.initializePieces();
-            this.History.Add((Colour.White,start));
+            CurrentBoard = start;
+            ActivePlayer = Colour.White;
         }
 
         public (Colour, Board) getCurrentState()
         {
-            return this.History[this.History.Count - 1];
+            return (ActivePlayer, CurrentBoard);
+        }
+
+        public void PrintState()
+        {
+            Console.WriteLine($"Active colour: {ActivePlayer}");
+            CurrentBoard.PrintBoard();
         }
 
     }

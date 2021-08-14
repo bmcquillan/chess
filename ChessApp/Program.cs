@@ -15,10 +15,6 @@ namespace ChessApp
             _kernel.Load(new ChessModule());
 
             var game = _kernel.Get<IGameplay>();
-            Console.WriteLine("Hello World!");
-            Board board = new Board();
-            board.initializePieces();
-            board.PrintBoard();
 
             game.takeTurns();
 
